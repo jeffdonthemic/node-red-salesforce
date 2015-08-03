@@ -14,6 +14,8 @@ For more information, see the <a href="https://www.npmjs.com/package/node-red-co
 
 To add additional functionality, `git pull` the repo locally, use npm to install any packages you may want and the `git push` back to Heroku.
 
+A fork from [node-red-heroku](https://github.com/joeartsea/) as it use MongoDB to store flows. This is needed as flows are typically store on the disk but are whipped out each time Heroku restarts dynos.
+
 ### Deploy to Heroku
 
 Deploy this app to Heroku for free and have it up and running in a matter of minutes.

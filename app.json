@@ -20,5 +20,6 @@
       "description": "Flow editor password.",
       "value": ""
     }
-  }
+  },
+  "addons": [ "mongolab" ]
 }
