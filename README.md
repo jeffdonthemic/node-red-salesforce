@@ -11,7 +11,7 @@ Deploy this app to Heroku for free and have it up and running in a matter of min
 
 ### Flow Editor Credentials
 
-The flow editor UI (/red) is protected by BasicAuth. You can find the credentials in the settings.js file. You can use your own username and password by setting the following:
+The flow editor UI (/red) is password protected **if** you include the following environment variables:
 
 * NODE_RED_USERNAME
 * NODE_RED_PASSWORD
