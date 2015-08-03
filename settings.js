@@ -40,6 +40,8 @@ var settings = module.exports = {
     httpStatic: path.join(__dirname,"public"),
 
     functionGlobalContext: { },
+
+    storageModule: require("./mongostorage")
 }
 
 if (process.env.NODE_RED_USERNAME && process.env.NODE_RED_PASSWORD) {
@@ -61,3 +63,6 @@ if (process.env.NODE_RED_USERNAME && process.env.NODE_RED_PASSWORD) {
     }
   }
 }
+
+settings.mongoAppname = 'nodered';
+settings.mongoUrl = process.env.MONGOLAB_URI;
