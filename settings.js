@@ -15,6 +15,7 @@
  **/
 
 var path = require("path");
+var when = require("when");
 
 var settings = module.exports = {
     uiPort: process.env.PORT || 1880,
@@ -42,22 +43,21 @@ var settings = module.exports = {
 }
 
 if (process.env.NODE_RED_USERNAME && process.env.NODE_RED_PASSWORD) {
-    settings.adminAuth = {
-        type: "credentials",
-        users: function(username) {
-            if (process.env.NODE_RED_USERNAME == username) {
-                return when.resolve({username:username,permissions:"*"});
-            } else {
-                return when.resolve(null);
-            }
-        },
-        authenticate: function(username, password) {
-            if (process.env.NODE_RED_USERNAME == username &&
-                process.env.NODE_RED_PASSWORD == password) {
-                return when.resolve({username:username,permissions:"*"});
-            } else {
-                return when.resolve(null);
-            }
-        }
+  settings.adminAuth = {
+    type: "credentials",
+    users: function(username) {
+      if (process.env.NODE_RED_USERNAME == username) {
+        return when.resolve({username:username,permissions:"*"});
+      } else {
+        return when.resolve(null);
+      }
+    },
+    authenticate: function(username, password) {
+      if (process.env.NODE_RED_USERNAME == username && process.env.NODE_RED_PASSWORD == password) {
+        return when.resolve({username:username,permissions:"*"});
+      } else {
+        return when.resolve(null);
+      }
     }
+  }
 }
