@@ -1,0 +1,23 @@
+{
+  "name": "node-red-salesforce",
+  "version": "0.0.1",
+  "description": "Node-RED for Heroku with Salesforce nodes.",
+  "author": {
+    "name": "Jeff Douglas",
+    "url": "http://blog.jeffdouglas.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/jeffdonthemic/node-red-salesforce.git"
+  },
+  "engines": {
+    "node": "0.12.x"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "node-red": "0.x",
+    "when": "~3.x",
+    "node-red-contrib-elasticsearch-jd": "0.0.x",
+    "node-red-contrib-salesforce": "0.0.x"
+  }
+}
