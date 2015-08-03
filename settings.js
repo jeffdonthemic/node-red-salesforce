@@ -35,15 +35,29 @@ var settings = module.exports = {
     // Move the admin UI
     httpAdminRoot: '/red',
 
-    // You can protect the user interface with a userid and password by using the following property
-    // the password must be an md5 hash  eg.. 5f4dcc3b5aa765d61d8327deb882cf99 ('password')
-    httpAdminAuth: {
-      user: process.env.NODE_RED_USERNAME || 'user',
-      pass: process.env.NODE_RED_PASSWORD || '5f4dcc3b5aa765d61d8327deb882cf99'
-    },
-
     // Serve up the welcome page
     httpStatic: path.join(__dirname,"public"),
 
     functionGlobalContext: { },
+}
+
+if (process.env.NODE_RED_USERNAME && process.env.NODE_RED_PASSWORD) {
+    settings.adminAuth = {
+        type: "credentials",
+        users: function(username) {
+            if (process.env.NODE_RED_USERNAME == username) {
+                return when.resolve({username:username,permissions:"*"});
+            } else {
+                return when.resolve(null);
+            }
+        },
+        authenticate: function(username, password) {
+            if (process.env.NODE_RED_USERNAME == username &&
+                process.env.NODE_RED_PASSWORD == password) {
+                return when.resolve({username:username,permissions:"*"});
+            } else {
+                return when.resolve(null);
+            }
+        }
+    }
 }
