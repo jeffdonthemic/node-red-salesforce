@@ -1,25 +1,22 @@
 {
   "name": "Node-RED Salesforce",
   "description": "A Node-RED instance for Heroku with pre-installed Salesforce nodes.",
+  "repository": "https://github.com/jeffdonthemic/node-red-salesforce",
   "keywords": [
     "Node-RED",
     "Salesforce",
     "Force.com",
     "iot"
   ],
-  "repository": "https://github.com/jeffdonthemic/node-red-salesforce.git",
   "website": "http://nodered.org/",
   "logo": "http://nodered.org/node-red.png",
-  "success_url": "/",
   "env": {
     "NODE_RED_USERNAME": {
-      "description": "Flow editor username",
-      "value": ""
+      "description": "Flow editor username"
     },
     "NODE_RED_PASSWORD": {
-      "description": "Flow editor password.",
-      "value": ""
+      "description": "Flow editor password."
     }
   },
-  "addons": [ "mongolab" ]
+  "addons": [ "mongolab", "searchbox" ]
 }
